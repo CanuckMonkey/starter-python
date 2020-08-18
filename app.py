@@ -1,13 +1,17 @@
 import os
 
+from dotenv import load_dotenv
 from flask import Flask, Response, request, render_template
 from twilio.twiml.voice_response import VoiceResponse
 from twilio.rest import Client
 
 # Pull in configuration from system environment variables
-TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
+load_dotenv()
+TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
+
+# print(TWILIO_ACCOUNT_SID)
 
 # create an authenticated client that can make requests to Twilio for your
 # account.
